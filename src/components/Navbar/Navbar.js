@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import classes from "./Navbar.css";
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
-      <header className="navbar">
-        <nav className="navbar-nav">
-          <div className="nav-logo">LOGO</div>
-          <div className="spacer" />
-          <div className="navbar-nav-items">
+      <header className={classes.navbar}>
+        <nav className={classes.navbar_nav}>
+          <div className={classes.nav_logo}>LOGO</div>
+          <div className={classes.spacer} />
+          <div className={classes.navbar_nav_items}>
             <ul>
               <li>
                 <a>Create Group</a>
