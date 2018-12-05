@@ -6,10 +6,28 @@ import Navbar from "./pages/Navbar/Navbar";
 
 import "./App.css";
 
+const API = 'http://localhost:8443/login';
+
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            groups: null,
+        };
+    }
+    componentDidMount() {
+        const thisRef = this;
+        fetch(API)
+            .then(response => {
+                response.json().then(function(data) {
+                    thisRef.setState({ groups: data.render })
+                });
+            } );
+    }
+
   render() {
     return (
-      <Router basename="/react-auth-ui/">
+      <Router basename="/react-auth-ui/" >
         <div className="App">
           <div className="App__Aside" />
           <div className="App__Form">
