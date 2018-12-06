@@ -1,6 +1,8 @@
 .Auth__Aside {
-  width: 50%;
+  width: 40%;
   background-color: #66dac7;
+  background-image: url("../assets/food_1.jpg");
+  background-size: 100% 100%;
 }
 
 .App__Form {

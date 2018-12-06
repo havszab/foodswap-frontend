@@ -39,23 +39,6 @@ class SignInForm extends Component {
       <div className={style.App}>
         <div className={styleForm.Auth__Aside} />
         <div className={style.App__Form}>
-          <div>
-            <NavLink
-              to="/sign-in"
-              activeClassName={style["PageSwitcher__Items--Active"]}
-              className={style.PageSwitcher__Item}
-            >
-              Sign In
-            </NavLink>
-            <NavLink
-              exact
-              to="/"
-              activeClassName={style["PageSwitcher__Items--Active"]}
-              className={style.PageSwitcher__Item}
-            >
-              Sign Up
-            </NavLink>
-          </div>
           <div className={style.FormTitle}>
             <NavLink
               to="/sign-in"
