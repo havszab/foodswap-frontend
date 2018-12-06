@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import style from "../App.css";
+import styleForm from "./AuthForm.css";
 
 class SignUpForm extends Component {
   constructor() {
@@ -37,102 +39,130 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <div className="FormCenter">
-        <form onSubmit={this.handleSubmit} className="FormFields">
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="firstName">
-              First Name
-            </label>
-            <input
-              type="text"
-              id="f_name"
-              className="FormField__Input"
-              placeholder="Enter your first name"
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="lastName">
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="l_name"
-              className="FormField__Input"
-              placeholder="Enter your last name"
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="FormField__Input"
-              placeholder="Enter your password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="secPassword">
-              Second Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="FormField__Input"
-              placeholder="Re-enter your password"
-              name="secPassword"
-              value={this.state.secPassword}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="FormField">
-            <label className="FormField__Label" htmlFor="email">
-              E-Mail Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="FormField__Input"
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
+      <div className={style.App}>
+        <div className={styleForm.Auth__Aside} />
+        <div className={style.App__Form}>
+          <div>
+            <div className={style.FormTitle}>
+              <NavLink
+                to="/sign-in"
+                activeClassName={style["FormTitle__Link--Active"]}
+                className={style.FormTitle__Link}
+              >
+                Sign In
+              </NavLink>
+              or
+              <NavLink
+                exact
+                to="/"
+                activeClassName={style["FormTitle__Link--Active"]}
+                className={style.FormTitle__Link}
+              >
+                Sign Up
+              </NavLink>
+            </div>
+            <div className={style.FormCenter}>
+              <form onSubmit={this.handleSubmit} className={style.FormFields}>
+                <div className={style.FormField}>
+                  <label className={style.FormField__Label} htmlFor="firstName">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="f_name"
+                    className={style.FormField__Input}
+                    placeholder="Enter your first name"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className={style.FormField}>
+                  <label className={style.FormField__Label} htmlFor="lastName">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="l_name"
+                    className={style.FormField__Input}
+                    placeholder="Enter your last name"
+                    name="lastName"
+                    value={this.state.lastName}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className={style.FormField}>
+                  <label className={style.FormField__Label} htmlFor="password">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    className={style.FormField__Input}
+                    placeholder="Enter your password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className={style.FormField}>
+                  <label
+                    className={style.FormField__Label}
+                    htmlFor="secPassword"
+                  >
+                    Re-entered Password
+                  </label>
+                  <input
+                    type="password"
+                    id="sec_password"
+                    className={style.FormField__Input}
+                    placeholder="Re-enter your password"
+                    name="secPassword"
+                    value={this.state.secPassword}
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className={style.FormField}>
+                  <label className={style.FormField__Label} htmlFor="email">
+                    E-Mail Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className={style.FormField__Input}
+                    placeholder="Enter your email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  />
+                </div>
 
-          <div className="FormField">
-            <label className="FormField__CheckboxLabel">
-              <input
-                className="FormField__Checkbox"
-                type="checkbox"
-                name="hasAgreed"
-                value={this.state.hasAgreed}
-                onChange={this.handleChange}
-              />{" "}
-              I agree all statements in{" "}
-              <a href="" className="FormField__TermsLink">
-                terms of service
-              </a>
-            </label>
-          </div>
+                <div className={style.FormField}>
+                  <label className={style.FormField__CheckboxLabel}>
+                    <input
+                      className={style.FormField__Checkbox}
+                      type="checkbox"
+                      name="hasAgreed"
+                      value={this.state.hasAgreed}
+                      onChange={this.handleChange}
+                    />{" "}
+                    I agree all statements in{" "}
+                    <a href="" className={style.FormField__TermsLink}>
+                      terms of service
+                    </a>
+                  </label>
+                </div>
 
-          <div className="FormField">
-            <button className="FormField__Button mr-20">Sign Up</button>{" "}
-            <Link to="/sign-in" className="FormField__Link">
-              I'm already member
-            </Link>
+                <div cclassName={style.FormField}>
+                  <button className={style.FormField__Button}>Sign Up</button>
+                  <Link to="/sign-in" className={style.FormField__Link}>
+                    I'm already member
+                  </Link>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

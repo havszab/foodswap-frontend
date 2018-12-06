@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import style from "../App.css";
+import styleForm from "./AuthForm.css";
 import {Redirect} from 'react-router'
 
 class SignInForm extends Component {
@@ -15,8 +16,6 @@ class SignInForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-
 
   handleChange(e) {
       let target = e.target;
@@ -61,24 +60,47 @@ class SignInForm extends Component {
           return <Redirect to='/list-foods'/>;
       }
     return (
-      <div className={style.FormCenter}>
-        <form
-          className={style.FormFields}
-        >
-          <div className={style.FormField}>
-            <label className={style.FormField__Label} htmlFor="email">
-              E-Mail Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              className={style.FormField__Input}
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
+      <div className={style.App}>
+        <div className={styleForm.Auth__Aside} />
+        <div className={style.App__Form}>
+          <div className={style.FormTitle}>
+            <NavLink
+              to="/sign-in"
+              activeClassName={style["FormTitle__Link--Active"]}
+              className={style.FormTitle__Link}
+            >
+              Sign In
+            </NavLink>
+            or
+            <NavLink
+              exact
+              to="/"
+              activeClassName={style["FormTitle__Link--Active"]}
+              className={style.FormTitle__Link}
+            >
+              Sign Up
+            </NavLink>
           </div>
+          <div className={style.FormCenter}>
+            <form
+              onSubmit={this.handleSubmit}
+              className={style.FormFields}
+              onSubmit={this.handleSubmit}
+            >
+              <div className={style.FormField}>
+                <label className={style.FormField__Label} htmlFor="email">
+                  E-Mail Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className={style.FormField__Input}
+                  placeholder="Enter your email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </div>
 
           <div className={style.FormField}>
             <label className={style.FormField__Label} htmlFor="password">
