@@ -1,0 +1,17 @@
+.Auth__Aside {
+  width: 50%;
+  background-color: #66dac7;
+}
+
+.App__Form {
+  width: 50%;
+  background-color: #2e4158;
+  padding: 25px 40px;
+  overflow: auto;
+}
+
+.PageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+}
