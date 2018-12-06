@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import style from "../App.css";
+import {Redirect} from 'react-router'
 
 class SignInForm extends Component {
   constructor() {
@@ -15,30 +16,54 @@ class SignInForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-    let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
 
-    this.setState({
-      [name]: value
-    });
+
+  handleChange(e) {
+      let target = e.target;
+      let value = target.type === "checkbox" ? target.checked : target.value;
+      let name = target.name;
+
+      this.setState({
+          [name]: value,
+          redirect: false
+      });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    let thisRef = this;
 
     console.log("The form was submitted with the following data:");
-    console.log(this.state);
+    fetch('http://localhost:8443/login', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET',
+            'Access-Control-Allow-Headers': 'X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept',
+            'Access-Control-Max-Age': '1728000'
+        },
+        body: JSON.stringify(this.state)
+
+    }).then(response => {
+        response.json().then(function(data) {
+            thisRef.setState({ redirect: data.login })
+        });
+    } );
+      console.log(this.state);
   }
 
   render() {
+      if (this.state.redirect) {
+          return <Redirect to='/list-foods'/>;
+      }
     return (
       <div className={style.FormCenter}>
         <form
-          onSubmit={this.handleSubmit}
           className={style.FormFields}
-          onSubmit={this.handleSubmit}
         >
           <div className={style.FormField}>
             <label className={style.FormField__Label} htmlFor="email">
@@ -71,13 +96,12 @@ class SignInForm extends Component {
           </div>
 
           <div className={style.FormField}>
-            <Link to="list-foods">
               <button
                 className={[style.FormField__Button, style.mr - 20].join(" ")}
+                onClick={this.handleSubmit}
               >
                 Sign In
               </button>{" "}
-            </Link>
             <Link to="/" className={style.FormField__Link}>
               Create an account
             </Link>

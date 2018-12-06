@@ -6,7 +6,7 @@ class NavBar extends Component {
     return (
       <header className={classes.navbar}>
         <nav className={classes.navbar_nav}>
-          <div className={classes.nav_logo}>{this.props.groups}</div>
+          <div className={classes.nav_logo}>{this.props.state}</div>
           <div className={classes.spacer} />
           <div className={classes.navbar_nav_items}>
             <ul>

@@ -16,13 +16,13 @@ class App extends Component {
         };
     }
     componentDidMount() {
-        const thisRef = this;
-        fetch(API)
-            .then(response => {
-                response.json().then(function(data) {
-                    thisRef.setState({ groups: data.render })
-                });
-            } );
+    const thisRef = this;
+    fetch(API)
+        .then(response => {
+            response.json().then(function(data) {
+                thisRef.setState({ groups: data.render })
+            });
+        } );
     }
 
   render() {
@@ -70,7 +70,7 @@ class App extends Component {
 
             <Route exact path="/" component={SignUpForm} />
             <Route path="/sign-in" component={SignInForm} />
-            <Route path="/list-foods" component={Navbar} />
+            <Route path="/list-foods" render={(props) => <Navbar {...props} state={this.state.groups}/>}/>
           </div>
         </div>
       </Router>
