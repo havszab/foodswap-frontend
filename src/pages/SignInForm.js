@@ -130,6 +130,8 @@ class SignInForm extends Component {
           </div>
         </form>
       </div>
+        </div>
+      </div>
     );
   }
 }
