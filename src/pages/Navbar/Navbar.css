@@ -1,6 +1,6 @@
 .navbar {
   position: fixed;
-  background-color: #96858f;
+  background-color: #6a4928;
   top: 0;
   left: 0;
   width: 100%;
@@ -35,7 +35,7 @@
 }
 
 .navbar_nav_items a {
-  color: black;
+  color: #ffc152;
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
