@@ -1,12 +1,13 @@
 .App {
   height: 100vh;
   display: flex;
-  color: white;
+  color: #ffc152;
+  background-color: #e3caad;
 }
 
 .App__Form {
   width: 60%;
-  background-color: #2e4158;
+  background-color: #6a4928;
   padding: 25px 40px;
   overflow: auto;
 }
@@ -19,7 +20,7 @@
 
 .PageSwitcher__Item {
   background-color: #4c5d72;
-  color: #9da6b1;
+  color: #ffc152;
   padding: 10px 25px;
   cursor: pointer;
   font-size: 0.9em;
@@ -30,8 +31,8 @@
 }
 
 .PageSwitcher__Item--Active {
-  background-color: #5ed0c0;
-  color: white;
+  background-color: #6a8347;
+  color: #ffc152;
 }
 
 .PageSwitcher__Item:first-child {
@@ -48,13 +49,13 @@
 }
 
 .FormTitle {
-  color: #707c8b;
+  color: #ffc152;
   font-weight: 300;
   margin-bottom: 50px;
 }
 
 .FormTitle__Link {
-  color: #707c8b;
+  color: #cccccc;
   text-decoration: none;
   display: inline-block;
   font-size: 1.7em;
@@ -67,8 +68,10 @@
 }
 
 .FormTitle__Link--Active {
-  color: white;
-  border-bottom: 1px solid #199087;
+  color: #ffc152;
+  font-size: 1.8em;
+  font-weight: bold;
+  border-bottom: 1px solid #6a8347;
 }
 
 .FormField {
@@ -79,15 +82,15 @@
   display: block;
   text-transform: uppercase;
   font-size: 0.9em;
-  color: white;
+  color: #ffc152;
 }
 .FormField__Input {
   width: 85%;
   background-color: transparent;
   border: none;
-  color: white;
+  color: #ffc152;
   outline: none;
-  border-bottom: 1px solid #445366;
+  border-bottom: 1px solid #e3caad;
   font-size: 1em;
   font-weight: 300;
   padding-bottom: 10px;
@@ -95,31 +98,31 @@
 }
 
 .FormField__Input::placeholder {
-  color: #616e7f;
+  color: #e3caad;
 }
 
 .FormField__Button {
-  background-color: #52c4b9;
-  color: white;
+  background-color: #6a8347;
+  color: #ffc152;
   border: none;
   outline: none;
   border-radius: 25px;
   padding: 15px 70px;
-  font-size: 0.8em;
+  font-size: 1.2em;
   font-weight: 500;
   margin-right: 5%;
 }
 
 .FormField__Link {
-  color: #66707d;
+  color: #e3caad;
   text-decoration: none;
   display: inline-block;
-  border-bottom: 1.5px solid #225e62;
+  border-bottom: 1.5px solid #6a8347;
   padding-bottom: 5px;
 }
 
 .FormField__CheckboxLabel {
-  color: #646f7d;
+  color: #e3caad;
   font-size: 0.9em;
 }
 
@@ -129,8 +132,8 @@
 }
 
 .FormField__TermsLink {
-  color: white;
-  border-bottom: 1px solid #199087;
+  color: #ffc152;
+  border-bottom: 1px solid #e3caad;
   text-decoration: none;
   display: inline-block;
   padding-bottom: 2px;

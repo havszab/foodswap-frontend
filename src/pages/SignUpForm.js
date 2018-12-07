@@ -84,6 +84,8 @@ class SignUpForm extends Component {
               >
                 Sign Up
               </NavLink>
+              <br />
+              for <span className={style.Title}>Foodswap</span>
             </div>
             <div className={style.FormCenter}>
               <form onSubmit={this.handleSubmit} className={style.FormFields}>
