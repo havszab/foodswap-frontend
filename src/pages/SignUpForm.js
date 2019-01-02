@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import style from "../App.css";
 import styleForm from "./AuthForm.css";
+import {Redirect} from "react-router";
 
 class SignUpForm extends Component {
   constructor() {
@@ -30,14 +31,37 @@ class SignUpForm extends Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault();
+        let thisRef = this;
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
-  }
+        console.log("The form was submitted with the following data:");
+        fetch('http://localhost:8443/registration', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': 'true',
+                'Access-Control-Allow-Origin': '*', // this code goes to the backend
+                'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+                'Access-Control-Allow-Headers': 'X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept',
+                'Access-Control-Max-Age': '1728000'
+            },
+            body: JSON.stringify(this.state)
+
+        }).then(response => {
+            response.json().then(function(data) {
+                thisRef.setState({ hasAgreed: data.registration })
+            });
+        } );
+        console.log(this.state);
+    }
 
   render() {
+      if (this.state.hasAgreed) {
+          return <Redirect to='/sign-in'/>;
+      }
     return (
       <div className={style.App}>
         <div className={styleForm.Auth__Aside} />
@@ -156,7 +180,7 @@ class SignUpForm extends Component {
                 </div>
 
                 <div cclassName={style.FormField}>
-                  <button className={style.FormField__Button}>Sign Up</button>
+                  <button className={style.FormField__Button} onClick={this.handleSubmit}>Sign Up</button>
                   <Link to="/sign-in" className={style.FormField__Link}>
                     I'm already member
                   </Link>
