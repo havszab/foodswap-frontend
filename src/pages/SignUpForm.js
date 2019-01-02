@@ -43,7 +43,7 @@ class SignUpForm extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': 'true',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': '*', // this code goes to the backend
                 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
                 'Access-Control-Allow-Headers': 'X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept',
                 'Access-Control-Max-Age': '1728000'
