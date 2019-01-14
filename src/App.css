@@ -1,3 +1,7 @@
+body {
+  background-color: #ffc152;
+}
+
 .App {
   height: 100vh;
   display: flex;

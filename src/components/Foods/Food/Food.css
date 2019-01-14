@@ -1,0 +1,70 @@
+.Food {
+    width: 95%;
+    margin: 12px;
+    border: 2px solid grey;
+    text-align: center;
+    cursor: pointer;
+    top: 40px;
+    background-color: #e3caad;
+
+}
+
+.Food img {
+    float: left;
+    padding: 35px;
+    border: 2px solid black;
+margin: 3px;
+    background-color: #e3caad;
+}
+
+.Button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #6a8347;
+    border: none;
+    color: #ffc152;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.Button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.Button:hover span {
+    padding-right: 25px;
+}
+
+.Button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.Head {
+    text-align: right;
+    margin-right: 4%;
+}
+
+.DetailBody {
+    text-align: left;
+    margin: 4%;
+    padding-top: 2%;
+    border-top: 2px #6a4928 dashed;
+}

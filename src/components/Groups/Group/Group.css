@@ -1,0 +1,15 @@
+.Group {
+    width: 95%;
+    margin: 2%;
+    padding: 10% 3%;
+    border: 1px solid grey;
+    text-align: center;
+    cursor: pointer;
+    top: 40px;
+    background-color: #e3caad;
+    font-size: 25px;
+}
+
+.Active {
+    background-color: #6B8E23;
+}

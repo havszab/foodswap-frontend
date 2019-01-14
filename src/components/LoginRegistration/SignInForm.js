@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-import style from "../App.css";
+import style from "../../App.css";
 import styleForm from "./AuthForm.css";
+import axios from "axios";
 
 class SignInForm extends Component {
   constructor() {
@@ -30,8 +31,16 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
+  // const user = {
+  //   ...this.state
+  // }
+  // axios.post("localhost:8080/login", user)
+  //     .then(response => {
+  //       console.log("The form was submitted with the following response: " + response);
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
   }
 
   render() {
@@ -57,13 +66,13 @@ class SignInForm extends Component {
               Sign Up
             </NavLink>
             <br />
-            for <span className={style.Title}>Foodswap</span>
+            for <span className={style.FormTitle}>Foodswap</span>
           </div>
           <div className={style.FormCenter}>
             <form
-              onSubmit={this.handleSubmit}
-              className={style.FormFields}
-              onSubmit={this.handleSubmit}
+              //onSubmit={this.handleSubmit}
+              className={style.FormField}
+             //onSubmit={this.handleSubmit}
             >
               <div className={style.FormField}>
                 <label className={style.FormField__Label} htmlFor="email">
@@ -96,10 +105,11 @@ class SignInForm extends Component {
               </div>
 
               <div className={style.FormField}>
+                {/*//onClick={this.handleSubmit}>*/}
                 <Link to="list-foods">
                   <button className={style.FormField__Button}>Sign In</button>
                 </Link>
-                <Link to="/" className={style.FormField__Link}>
+                <Link to="/register" className={style.FormField__Link}>
                   Create an account
                 </Link>
               </div>

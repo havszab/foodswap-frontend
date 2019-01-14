@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import SignUpForm from "./pages/SignUpForm";
-import SignInForm from "./pages/SignInForm";
-import Navbar from "./pages/Navbar/Navbar";
+import { HashRouter as Router, Route } from "react-router-dom";
+import SignUpForm from "./components/LoginRegistration/SignUpForm";
+import SignInForm from "./components/LoginRegistration/SignInForm";
+import ListFoods from "./containers/ListFoods";
 
 class App extends Component {
   state = {};
@@ -13,7 +13,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={SignUpForm} />
             <Route path="/sign-in" component={SignInForm} />
-            <Route path="/list-foods" component={Navbar} />
+            <Route path="/list-foods" component={ListFoods} />
           </div>
         </div>
       </Router>
